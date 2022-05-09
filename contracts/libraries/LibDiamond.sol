@@ -36,6 +36,22 @@ library LibDiamond {
         mapping(bytes4 => bool) supportedInterfaces;
         // owner of the contract
         address contractOwner;
+
+        ///////////////////// MY STORAGE /////////////////////////////////////
+        // ERC721 Name
+        string name;
+        // ERC721 Symbol
+        string symbol;
+        // baseURI
+        string baseURI;
+        // White list Merkle Root
+        bytes32 whitelistMerkleRoot;
+        // Mint END Period;
+        uint256 MINT_END_PERIOD;
+
+        // keep track of address already minteed
+        mapping(address => uint256) addressToMinted;
+
     }
 
     function diamondStorage() internal pure returns (DiamondStorage storage ds) {

@@ -14,6 +14,11 @@ import { IDiamondCut } from "../interfaces/IDiamondCut.sol";
 import { IERC173 } from "../interfaces/IERC173.sol";
 import { IERC165 } from "../interfaces/IERC165.sol";
 
+// Import 721 interface
+import {IERC721} from "../interfaces/IERC721.sol";
+
+
+
 // It is expected that this contract is customized if you want to deploy your diamond
 // with data from a deployment script. Use the init function to initialize state variables
 // of your diamond. Add parameters to the init funciton if you need to.
@@ -29,6 +34,10 @@ contract DiamondInit {
         ds.supportedInterfaces[type(IDiamondCut).interfaceId] = true;
         ds.supportedInterfaces[type(IDiamondLoupe).interfaceId] = true;
         ds.supportedInterfaces[type(IERC173).interfaceId] = true;
+
+        // Adding ERC721 interface
+        ds.supportedInterfaces[type(IERC721).interfaceId] = true;        
+
 
         // add your own state variables 
         // EIP-2535 specifies that the `diamondCut` function takes two optional 
